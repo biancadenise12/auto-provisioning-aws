@@ -184,3 +184,7 @@ resource "aws_instance" "server" {
     ```log
     REPORT RequestId: 2cddbaca-7927-4812-9d78-7c6edd619679	Duration: 33277.17 ms	Billed Duration: 33300 ms	Memory Size: 3008 MB	Max Memory Used: 330 MB	Init Duration: 251.30 ms
     ```
+    
+## Errors Encountered
+`A conflicting conditional operation is currently in progress against this resource. Please try again.` - This error showed in AWS S3 Console when trying to "rename" a bucket or "move to a new region". Rename/move here means that I deleted the original bucket from us-east-1, then immediately created another bucket in ap-southeast-2 with the same bucket name. Expectedly, the attempt to reuse the bucket name should succeed after about an hour or so. 
+
